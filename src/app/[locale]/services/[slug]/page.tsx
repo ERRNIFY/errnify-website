@@ -6,10 +6,6 @@ import { slugExists, slugMeta, slugParams } from "@/lib/meta";
 
 type Props = PageProps<"/[locale]/services/[slug]">;
 
-// Sayfanın tamamı adresteki "slug" değerine bağlı ve derleme sırasında statik üretiliyor.
-// Bu yüzden gezinme, hazır HTML gelene kadar kısa süre bekleyebilir; iskelet göstermiyoruz.
-export const instant = false;
-
 export const generateStaticParams = () => slugParams("services");
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
