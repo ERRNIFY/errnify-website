@@ -161,7 +161,8 @@ export function SiteChrome({ locale, children }: { locale: Locale; children: Rea
   const [webgl, setWebgl] = useState<boolean | null>(null);
   const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 30 });
   const home = href(locale);
-  const isHome = pathname === home;
+  // Statik yayında (GitHub Pages) adres "/tr/" gibi sonda "/" ile gelir
+  const isHome = pathname.replace(/\/$/, "") === home;
 
   useEffect(() => {
     // Yumuşak kaydırma yalnızca hareket azaltma istenmediyse ve fareyle kullanılan cihazlarda
